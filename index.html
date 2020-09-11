@@ -4,24 +4,55 @@
   <meta charset="utf-8">
   <title>Titre de la page</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
 </head>
 <body>
   
 
-    <input type="file" accept="audio/*" capture id="recorder">
-    <audio id="player" controls></audio>
+    <a id="download">Download</a>
+    <button id="stop">Stop</button>
     <script>
-      const recorder = document.getElementById('recorder');
-      const player = document.getElementById('player');
+        
+
+
+      let shouldStop = false;
+      let stopped = false;
+      const downloadLink = document.getElementById('download');
+      const stopButton = document.getElementById('stop');
     
-      recorder.addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        const url = URL.createObjectURL(file);
-        // Do something with the audio file.
-        player.src = url;
+      stopButton.addEventListener('click', function() {
+        shouldStop = true;
       });
+    
+      const handleSuccess = function(stream) {
+        const options = {mimeType: 'audio/webm'};
+        const recordedChunks = [];
+        const mediaRecorder = new MediaRecorder(stream, options);
+    
+        mediaRecorder.addEventListener('dataavailable', function(e) {
+          if (e.data.size > 0) {
+            recordedChunks.push(e.data);
+          }
+    
+          if(shouldStop === true && stopped === false) {
+            mediaRecorder.stop();
+            stopped = true;
+          }
+        });
+    
+        mediaRecorder.addEventListener('stop', function() {
+          downloadLink.href = URL.createObjectURL(new Blob(recordedChunks));
+          downloadLink.download = 'acetest.wav';
+          console.log("test");
+        });
+    
+        mediaRecorder.start();
+      };
+    
+      navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+          .then(handleSuccess);
+    
     </script>
+    
     
 </body>
 </html>
