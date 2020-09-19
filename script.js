@@ -24,18 +24,30 @@ gUMbtn.onclick = e => {
         },
         audio: {
           tag: 'audio',
-          type: 'audio/ogg',
+          type: 'audio/ogg',  
           ext: '.ogg',
           gUM: {audio: true}
         }
       };
+  var canRecordVp9 = MediaRecorder.isTypeSupported('audio/webm;codecs=opus');
+  var canRecordPCM = MediaRecorder.isTypeSupported("audio/webm;codecs=pcm")
+  if (canRecordPCM) {
+    mediaOptions.audio.type = 'audio/webm;codecs=pcm';
+    mediaOptions.audio.ext = '.wav';
+    console.log("Peut faire du wav");
+  }
+  if (canRecordVp9) {
+    mediaOptions.audio.type = 'audio/webm;codecs=opus';
+    mediaOptions.audio.ext = '.webm';
+    console.log("Peut faire du webm");
+  } 
   media = mv.checked ? mediaOptions.video : mediaOptions.audio;
   navigator.mediaDevices.getUserMedia(media.gUM).then(_stream => {
     stream = _stream;
     id('gUMArea').style.display = 'none';
     id('btns').style.display = 'inherit';
     start.removeAttribute('disabled');
-    recorder = new MediaRecorder(stream);
+    recorder = new MediaRecorder(stream, {mimeType : mediaOptions.audio.type});
     recorder.ondataavailable = e => {
       chunks.push(e.data);
       if(recorder.state == 'inactive') {
@@ -90,6 +102,7 @@ function makeLink(){
 
     var blob = new Blob(chunks, {type: media.type});
     data.append('file', blob);
+    data.append('ext', media.ext);
     oReq.send(data);
     log("Chargement: send");
 
