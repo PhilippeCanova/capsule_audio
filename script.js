@@ -38,7 +38,11 @@ gUMbtn.onclick = e => {
     recorder = new MediaRecorder(stream);
     recorder.ondataavailable = e => {
       chunks.push(e.data);
-      if(recorder.state == 'inactive')  makeLink();
+      if(recorder.state == 'inactive') {
+        log("Make link");
+        makeLink();
+        log("Link done");
+      }
     };
     log('got media successfully');
   }).catch(log);
@@ -78,14 +82,15 @@ function makeLink(){
 
   var data = new FormData();
     var oReq = new XMLHttpRequest();
-    oReq.open("POST", 'http://canova.philippe.free.fr/bacasable/audio/upload.php', true);
+    oReq.open("POST", 'upload.php', true);
     oReq.onload = function (oEvent) {
       // Uploaded.
+      console.log("Uploaded");
     };
 
     var blob = new Blob(chunks, {type: media.type});
     data.append('file', blob);
     oReq.send(data);
-
+    log("Chargement: send");
 
 }
