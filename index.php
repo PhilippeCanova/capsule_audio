@@ -29,16 +29,16 @@
   </head>
 
   <script type="text/javascript">
-        let tag = '<?php if (isset($_GET['tag'])) { echo ($_GET['tag']); } else { echo ('unknown'); } ?>';
+        let tag = '<?php if (isset($_GET['hotel'])) { echo ($_GET['hotel']); } else { echo ('unknown'); } ?>';
         function go(destination) {
-          window.location.assign(destination+"?tag=" + tag);
+          window.location.assign(destination+"?hotel=" + tag);
         }
     </script>
 
   <body>
     <h1>Livre d'or sonore</h1>
     <button class="btn btn-primary btn-lg" id="videoBtn" onclick="go('video.html');" >Vidéo</button>
-    <button class="btn btn-primary btn-lg" id="audioBtn" onclick="go('audio.html');" >Audo</button>
+    <button class="btn btn-primary btn-lg" id="audioBtn" onclick="go('audio.php');" >Audo</button>
     
 
 

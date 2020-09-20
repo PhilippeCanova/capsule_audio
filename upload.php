@@ -3,6 +3,12 @@ $ext = '.webm';
 if (isset($_POST['ext'])) {
     $ext = $_POST['ext'];
 }
+
+$hotel = 'unknown';
+if (isset($_POST['hotel'])) {
+    $hotel = $_POST['hotel'];
+}
+
 var_dump($_POST);
 echo ("<br>");
 
@@ -13,7 +19,7 @@ var_dump($_FILES);
 echo ("<br>");
 
 $today = date("Ymd_His");
-$name = './data/test_'.$today.$ext;
+$name = './data/'.$today.'_'.$hotel.$ext;
 $data = file_get_contents($mp3File);
 
 file_put_contents($name, $data);

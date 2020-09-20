@@ -11,7 +11,7 @@
     <div class="wrapper">
 
       <header>
-        <h1>Web dictaphone</h1>
+        <h1>Livre d'or sonore</h1>
       </header>
 
       <section class="main-controls">
@@ -32,12 +32,13 @@
     <label for="toggle">❔</label>
     <input type="checkbox" id="toggle">
     <aside>
-      <h2>Information</h2>
+      <h2>Comment procéder</h2>
 
-      <p>Web dictaphone is built using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia">getUserMedia</a> and the <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder_API">MediaRecorder API</a>, which provides an easier way to capture Media streams.</p>
-
-      <p>Icon courtesy of <a href="http://findicons.com/search/microphone">Find Icons</a>. Thanks to <a href="http://soledadpenades.com/">Sole</a> for the Oscilloscope code!</p>
+      <p>Mettre ici éventuellement un mode d'emploi du livre d'or numérique</p>
     </aside>
+    <script type="text/javascript">
+        let hotel = "<?php if (isset($_GET['hotel'])) { echo ($_GET['hotel']); } else { echo ('unknown'); } ?>";
+    </script>
     <script src="scripts/app.js"></script>
 
   </body>

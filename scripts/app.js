@@ -22,6 +22,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
   const constraints = { audio: true };
   let chunks = [];
+  let blob = null;
 
   let onSuccess = function(stream) {
     const mediaRecorder = new MediaRecorder(stream);
@@ -54,7 +55,7 @@ if (navigator.mediaDevices.getUserMedia) {
       console.log("data available after MediaRecorder.stop() called.");
 
       const clipName = 'mon_clip';
-
+      mainSection.style.display = 'None';
       const clipContainer = document.createElement('article');
       const clipLabel = document.createElement('p');
       const audio = document.createElement('audio');
@@ -81,7 +82,8 @@ if (navigator.mediaDevices.getUserMedia) {
       soundClips.appendChild(clipContainer);
 
       audio.controls = true;
-      const blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
+      blob = new Blob(chunks, { 'type' : 'audio/webm; codecs=opus' });
+
       chunks = [];
       const audioURL = window.URL.createObjectURL(blob);
       audio.src = audioURL;
@@ -90,6 +92,29 @@ if (navigator.mediaDevices.getUserMedia) {
       deleteButton.onclick = function(e) {
         let evtTgt = e.target;
         evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
+        mainSection.style.display = 'block';
+      }
+
+      sendButton.onclick = function() {
+        mediaRecorder.stop();
+        console.log(mediaRecorder.state);
+        console.log("SEnd required");
+        
+        
+        var data = new FormData();
+        var oReq = new XMLHttpRequest();
+        oReq.open("POST", 'upload.php', true);
+        oReq.onload = function (oEvent) {
+            // Uploaded.
+            console.log("Uploaded");
+        };
+
+        data.append('file', blob);
+        ext = '.webm';
+        data.append('ext', ext);
+        data.append('hotel', hotel );
+        oReq.send(data);
+        console.log("Chargement: send");
       }
 
       /*clipLabel.onclick = function() {
