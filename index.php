@@ -31,7 +31,7 @@
   <script type="text/javascript">
         let tag = '<?php if (isset($_GET['tag'])) { echo ($_GET['tag']); } else { echo ('unknown'); } ?>';
         function go(destination) {
-          window.location.assign("video.html?tag=" + tag);
+          window.location.assign(destination+"?tag=" + tag);
         }
     </script>
 
