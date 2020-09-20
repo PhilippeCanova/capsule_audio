@@ -107,6 +107,7 @@ if (navigator.mediaDevices.getUserMedia) {
         oReq.onload = function (oEvent) {
             // Uploaded.
             console.log("Uploaded");
+            alert('Affiche remerciements');
         };
 
         data.append('file', blob);

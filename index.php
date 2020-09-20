@@ -36,8 +36,8 @@
     </script>
 
   <body>
-    <h1>Livre d'or sonore</h1>
-    <button class="btn btn-primary btn-lg" id="videoBtn" onclick="go('video.html');" >Vidéo</button>
+    <h1>Livre d'or numérique</h1>
+    <button class="btn btn-primary btn-lg" id="videoBtn" onclick="go('video.php');" >Vidéo</button>
     <button class="btn btn-primary btn-lg" id="audioBtn" onclick="go('audio.php');" >Audo</button>
     
 
