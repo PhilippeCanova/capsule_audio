@@ -1,5 +1,8 @@
 'use strict'
 
+
+// Voir https://github.com/mdn/web-dictaphone/ pour un dictaphone avec choix du son envoi envoi
+
 let log = console.log.bind(console),
   id = val => document.getElementById(val),
   ul = id('ul'),
@@ -47,7 +50,7 @@ gUMbtn.onclick = e => {
     id('gUMArea').style.display = 'none';
     id('btns').style.display = 'inherit';
     start.removeAttribute('disabled');
-    recorder = new MediaRecorder(stream, {mimeType : mediaOptions.audio.type});
+    recorder = new MediaRecorder(stream, {mimeType : media.type});
     recorder.ondataavailable = e => {
       chunks.push(e.data);
       if(recorder.state == 'inactive') {
