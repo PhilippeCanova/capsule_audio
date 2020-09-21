@@ -37,10 +37,10 @@
     <video id="recorded" playsinline loop></video>
 
     <div>
-        <button id="start">Démarrer</button>
-        <button id="record" disabled>Enregistrer</button>
-        <button id="play" disabled>Ecouter</button>
-        <button id="download" disabled>Envoyer</button>
+        <button id="start">Start camera</button>
+        <button id="record" disabled>Start Recording</button>
+        <button id="play" disabled>Play</button>
+        <button id="download" disabled>Send</button>
     </div>
 
     <div>
@@ -60,6 +60,5 @@
 <!-- include adapter for srcObject shim -->
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 <script src="scripts/main.js" async></script>
-
 </body>
 </html>

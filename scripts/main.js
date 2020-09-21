@@ -20,7 +20,9 @@ const errorMsgElement = document.querySelector('span#errorMsg');
 const recordedVideo = document.querySelector('video#recorded');
 const recordButton = document.querySelector('button#record');
 recordButton.addEventListener('click', () => {
+  console.log("Click record");
   if (recordButton.textContent === 'Start Recording') {
+    console.log("Silence ça tourne !");
     startRecording();
   } else {
     stopRecording();
@@ -80,6 +82,7 @@ function handleDataAvailable(event) {
 }
 
 function startRecording() {
+  console.log('demarrage record');
   recordedBlobs = [];
   let options = {mimeType: 'video/webm;codecs=vp9,opus'};
   if (!MediaRecorder.isTypeSupported(options.mimeType)) {
@@ -94,9 +97,10 @@ function startRecording() {
       }
     }
   }
-
+  console.log('creation de l\'instance mediaRecorder');
   try {
     mediaRecorder = new MediaRecorder(window.stream, options);
+    
   } catch (e) {
     console.error('Exception while creating MediaRecorder:', e);
     errorMsgElement.innerHTML = `Exception while creating MediaRecorder: ${JSON.stringify(e)}`;
