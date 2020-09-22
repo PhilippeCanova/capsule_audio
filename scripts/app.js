@@ -24,6 +24,11 @@ if (navigator.mediaDevices.getUserMedia) {
   let chunks = [];
   let blob = null;
 
+  let mediaOptions = {
+      type: 'audio/webm;codecs=pcm',
+      ext: '.wav'
+  }
+
   let onSuccess = function(stream) {
     const mediaRecorder = new MediaRecorder(stream);
 
@@ -81,6 +86,20 @@ if (navigator.mediaDevices.getUserMedia) {
       clipContainer.appendChild(sendButton);
       soundClips.appendChild(clipContainer);
 
+
+      var canRecordVp9 = MediaRecorder.isTypeSupported('audio/webm;codecs=opus');
+      var canRecordPCM = MediaRecorder.isTypeSupported("audio/webm;codecs=pcm")
+      if (canRecordPCM) {
+        mediaOptions.type = 'audio/webm;codecs=pcm';
+        mediaOptions.ext = '.wav';
+        console.log("Peut faire du wav");
+      }
+      if (canRecordVp9) {
+        mediaOptions.type = 'audio/webm;codecs=opus';
+        mediaOptions.ext = '.webm';
+        console.log("Peut faire du webm");
+      } 
+      
       audio.controls = true;
       blob = new Blob(chunks, { 'type' : 'audio/webm; codecs=opus' });
 
@@ -96,8 +115,10 @@ if (navigator.mediaDevices.getUserMedia) {
       }
 
       sendButton.onclick = function() {
-        mediaRecorder.stop();
-        console.log(mediaRecorder.state);
+        if (mediaRecorder.state != 'inactive') {
+          mediaRecorder.stop();
+        }
+        
         console.log("SEnd required");
         
         
@@ -111,8 +132,7 @@ if (navigator.mediaDevices.getUserMedia) {
         };
 
         data.append('file', blob);
-        ext = '.webm';
-        data.append('ext', ext);
+        data.append('ext', mediaOptions.ext);
         data.append('hotel', hotel );
         oReq.send(data);
         console.log("Chargement: send");

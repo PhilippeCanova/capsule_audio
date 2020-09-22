@@ -16,6 +16,11 @@
 let mediaRecorder;
 let recordedBlobs;
 
+let mediaOptions = {
+  type: 'video/webm',
+  ext: '.webm'
+}
+
 const errorMsgElement = document.querySelector('span#errorMsg');
 const recordedVideo = document.querySelector('video#recorded');
 const recordButton = document.querySelector('button#record');
@@ -34,7 +39,7 @@ recordButton.addEventListener('click', () => {
 
 const playButton = document.querySelector('button#play');
 playButton.addEventListener('click', () => {
-  const superBuffer = new Blob(recordedBlobs, {type: 'video/webm'});
+  const superBuffer = new Blob(recordedBlobs, {type: mediaOptions.type});
   recordedVideo.src = null;
   recordedVideo.srcObject = null;
   recordedVideo.src = window.URL.createObjectURL(superBuffer);
@@ -44,7 +49,11 @@ playButton.addEventListener('click', () => {
 
 const downloadButton = document.querySelector('button#download');
 downloadButton.addEventListener('click', () => {
-    const blob = new Blob(recordedBlobs, {type: 'video/webm'});
+  console.log('ok');
+  console.log(MediaRecorder.mimeType);
+  console.log('here');
+
+    const blob = new Blob(recordedBlobs, {type: mediaOptions.type});
     var data = new FormData();
     var oReq = new XMLHttpRequest();
     oReq.open("POST", 'upload.php', true);
@@ -55,8 +64,7 @@ downloadButton.addEventListener('click', () => {
         };
 
     data.append('file', blob);
-    let ext = '.webm';
-    data.append('ext', ext);
+    data.append('ext', mediaOptions.ext);
     data.append('hotel', hotel );
     oReq.send(data);
     console.log("Chargement: send");
@@ -85,15 +93,19 @@ function startRecording() {
   console.log('demarrage record');
   recordedBlobs = [];
   let options = {mimeType: 'video/webm;codecs=vp9,opus'};
+  mediaOptions = {type: options.mimeType, ext:".webm"};
   if (!MediaRecorder.isTypeSupported(options.mimeType)) {
     console.error(`${options.mimeType} is not supported`);
     options = {mimeType: 'video/webm;codecs=vp8,opus'};
+    mediaOptions = {type: options.mimeType, ext:".webm"};
     if (!MediaRecorder.isTypeSupported(options.mimeType)) {
       console.error(`${options.mimeType} is not supported`);
       options = {mimeType: 'video/webm'};
+      mediaOptions = {type: options.mimeType, ext:".webm"};
       if (!MediaRecorder.isTypeSupported(options.mimeType)) {
         console.error(`${options.mimeType} is not supported`);
         options = {mimeType: ''};
+        mediaOptions = {type: options.mimeType, ext:".webm"};
       }
     }
   }
