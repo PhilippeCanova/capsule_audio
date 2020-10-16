@@ -27,27 +27,19 @@
       }
     </style>
   </head>
+
+  <script type="text/javascript">
+        let tag = '<?php if (isset($_GET['hotel'])) { echo ($_GET['hotel']); } else { echo ('unknown'); } ?>';
+        function go(destination) {
+          window.location.assign(destination+"?hotel=" + tag);
+        }
+    </script>
+
   <body>
-    <h1> MediaRecorder API example</h1>
-
-    <p> For now it is supported only in Firefox(v25+) and Chrome(v47+)</p>
-    <div id='gUMArea'>
-      <div>
-      Record:
-        <input type="radio" name="media" value="video" checked id='mediaVideo'>Video
-        <input type="radio" name="media" value="audio" >audio
-      </div>
-      <button class="btn btn-default"  id='gUMbtn'>Request Stream</button>
-    </div>
-    <div id='btns'>
-      <button  class="btn btn-default" id='start'>Start</button>
-      <button  class="btn btn-default" id='stop'>Stop</button>
-    </div>
-    <div>
-      <ul  class="list-unstyled" id='ul'></ul>
-    </div>
-
-    <script src="script.js"></script>
+    <h1>Livre d'or numérique</h1>
+    <button class="btn btn-primary btn-lg" id="videoBtn" onclick="go('video.php');" >Vidéo</button>
+    <button class="btn btn-primary btn-lg" id="audioBtn" onclick="go('audio.php');" >Audo</button>
+    
 
 
   </body>
