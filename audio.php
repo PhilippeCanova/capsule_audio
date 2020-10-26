@@ -18,13 +18,20 @@
         <canvas class="visualizer" height="60px"></canvas>
         <div id="buttons">
           <button class="record">Record</button>
-          <button class="stop">Stop</button>
+          <button class="stopB" style="display:none" >Stop</button>
         </div>
+        
+        
       </section>
 
       <section class="sound-clips">
+      </section>
 
-
+      <section class="no-recorder">
+        Aucun périphérique d'enregistrement sonore n'est accessible sur votre terminal.<br>Le livre d'or numérique n'est pas utilisable.
+      </section>
+      <section class="greetings">
+        Nous vous remercions de votre participation.<br>Votre avis sera bientôt disponible sur le site de l'hôtel.
       </section>
 
     </div>

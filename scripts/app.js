@@ -1,14 +1,16 @@
 // set up basic variables for app
 
-const record = document.querySelector('.record');
-const stop = document.querySelector('.stop');
+const record = document.querySelector('button.record');
+const stopB = document.querySelector('button.stopB');
 const soundClips = document.querySelector('.sound-clips');
 const canvas = document.querySelector('.visualizer');
 const mainSection = document.querySelector('.main-controls');
+const displayNoRecord = document.querySelector('.no-recorder');
+const greetingsSection = document.querySelector('.greetings');
 
 // disable stop button while not recording
 
-stop.disabled = true;
+stopB.disabled = true;
 
 // visualiser setup - create web audio api context and canvas
 
@@ -38,22 +40,28 @@ if (navigator.mediaDevices.getUserMedia) {
       mediaRecorder.start();
       console.log(mediaRecorder.state);
       console.log("recorder started");
-      record.style.background = "red";
+      
+      stopB.disabled = false;
+      stopB.style.display = 'block';
 
-      stop.disabled = false;
+      record.style.background = "red";
       record.disabled = true;
+      record.style.display = "none";
     }
 
-    stop.onclick = function() {
+    stopB.onclick = function() {
       mediaRecorder.stop();
       console.log(mediaRecorder.state);
       console.log("recorder stopped");
       record.style.background = "";
       record.style.color = "";
+      
       // mediaRecorder.requestData();
 
-      stop.disabled = true;
+      stopB.disabled = true;
+      stopB.style.display = "none";
       record.disabled = false;
+      record.style.display = "block";
     }
 
     mediaRecorder.onstop = function(e) {
@@ -71,8 +79,11 @@ if (navigator.mediaDevices.getUserMedia) {
       audio.setAttribute('controls', '');
       deleteButton.textContent = 'Delete';
       deleteButton.className = 'delete';
+
+      const autorisation = document.createElement('p');
+      autorisation.textContent = 'En cliquant sur Send, j\'autorise l\'utilisation du fichier sonore pour la promotion de l\'hôtel';
       sendButton.textContent = 'Send';
-      sendButton.className = 'delete';
+      sendButton.className = 'send';
 
       /*if(clipName === null) {
         clipLabel.textContent = 'My unnamed clip';
@@ -83,6 +94,7 @@ if (navigator.mediaDevices.getUserMedia) {
       clipContainer.appendChild(audio);
       //clipContainer.appendChild(clipLabel);
       clipContainer.appendChild(deleteButton);
+      clipContainer.appendChild(autorisation);
       clipContainer.appendChild(sendButton);
       soundClips.appendChild(clipContainer);
 
@@ -128,7 +140,8 @@ if (navigator.mediaDevices.getUserMedia) {
         oReq.onload = function (oEvent) {
             // Uploaded.
             console.log("Uploaded");
-            alert('Affiche remerciements');
+            greetingsSection.style.display = "block";
+            soundClips.style.display = "none";
         };
 
         data.append('file', blob);
@@ -155,6 +168,9 @@ if (navigator.mediaDevices.getUserMedia) {
   }
 
   let onError = function(err) {
+    displayNoRecord.style.display = "block";
+    soundClips.style.display = "none";
+    mainSection.style.display = "none";
     console.log('The following error occured: ' + err);
   }
 
