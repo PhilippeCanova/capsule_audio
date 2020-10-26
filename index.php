@@ -1,46 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <title>MediaRecorder API - Sample</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="WebRTC getUserMedia MediaRecorder API">
-    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-    <style>
-      button{
-        margin: 10px 5px;
-      }
-      li{
-        margin: 10px;
-      }
-      body{
-        width: 90%;
-        max-width: 960px;
-        margin: 0px auto;
-      }
-      #btns{
-        display: none;
-      }
-      h1{
-        margin: 100px;
-      }
-    </style>
+    <meta name="viewport" content="width=device-width">
+    <title>Web dictaphone</title>
+    <link href="styles/app.css" rel="stylesheet" type="text/css">
   </head>
-
-  <script type="text/javascript">
-        let tag = '<?php if (isset($_GET['hotel'])) { echo ($_GET['hotel']); } else { echo ('unknown'); } ?>';
-        function go(destination) {
-          window.location.assign(destination+"?hotel=" + tag);
-        }
-    </script>
-
   <body>
-    <h1>Livre d'or numérique</h1>
-    <button class="btn btn-primary btn-lg" id="videoBtn" onclick="go('video.php');" >Vidéo</button>
-    <button class="btn btn-primary btn-lg" id="audioBtn" onclick="go('audio.php');" >Audo</button>
-    
 
+    <div class="wrapper">
+
+      <header>
+        <h1>Livre d'or sonore</h1>
+      </header>
+
+      <section class="main-controls">
+        <canvas class="visualizer" height="60px"></canvas>
+        <div id="buttons">
+          <button class="record">Record</button>
+          <button class="stopB" style="display:none" >Stop</button>
+        </div>
+        
+        
+      </section>
+
+      <section class="sound-clips">
+      </section>
+
+      <section class="no-recorder">
+        Aucun périphérique d'enregistrement sonore n'est accessible sur votre terminal.<br>Le livre d'or numérique n'est pas utilisable.
+      </section>
+      <section class="greetings">
+        Nous vous remercions de votre participation.<br>Votre avis sera bientôt disponible sur le site de l'hôtel.
+      </section>
+
+    </div>
+
+    <label for="toggle">❔</label>
+    <input type="checkbox" id="toggle">
+    <aside>
+      <h2>Comment procéder</h2>
+
+      <p>Mettre ici éventuellement un mode d'emploi du livre d'or numérique</p>
+    </aside>
+    <script type="text/javascript">
+        let hotel = "<?php if (isset($_GET['hotel'])) { echo ($_GET['hotel']); } else { echo ('unknown'); } ?>";
+    </script>
+    <script src="scripts/app.js"></script>
 
   </body>
 </html>
