@@ -178,3 +178,7 @@
     background-color : gray;
   }
   p.send { display: block; width:100%; text-align: center; }
+
+  section.greetings {
+    display: block; width:100%; text-align: center; padding: 1em; font-size: 150%; padding-top: 3em;
+  }
