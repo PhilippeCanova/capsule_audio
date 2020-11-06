@@ -105,14 +105,14 @@
   .clip button {
     font-size: 1rem;
     padding: 1rem;
-    width: calc(100% - 0.25rem);
+    width: calc(100% - 0rem);
   }
   
   /* Checkbox hack to control information box display */
   
   label {
     font-size: 3rem;
-    position: absolute;
+    position: relative;
     top: 2px;
     right: 3px;
     z-index: 5;
@@ -127,13 +127,8 @@
   }
   
   aside {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
-    height: 100%;
-    transform: translateX(100%);
-    transition: 0.3s all ease-out;
     background-color: #efefef;
     padding: 1rem;
   }
@@ -177,4 +172,9 @@
   }
   button.delete, button.delete:hover, button.delete:focus {
     background-color : red;
+    margin-bottom: 2em;
   }
+  button.help, button.help:hover, button.help:focus {
+    background-color : gray;
+  }
+  p.send { display: block; width:100%; text-align: center; }

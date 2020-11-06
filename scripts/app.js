@@ -77,12 +77,15 @@ if (navigator.mediaDevices.getUserMedia) {
 
       clipContainer.classList.add('clip');
       audio.setAttribute('controls', '');
-      deleteButton.textContent = 'Delete';
+      deleteButton.textContent = 'Effacer';
       deleteButton.className = 'delete';
+
+      
 
       const autorisation = document.createElement('p');
       autorisation.textContent = 'En cliquant sur Send, j\'autorise l\'utilisation du fichier sonore pour la promotion de l\'hôtel';
-      sendButton.textContent = 'Send';
+      autorisation.className = 'send';
+      sendButton.textContent = 'Envoyer';
       sendButton.className = 'send';
 
       /*if(clipName === null) {
@@ -94,6 +97,7 @@ if (navigator.mediaDevices.getUserMedia) {
       clipContainer.appendChild(audio);
       //clipContainer.appendChild(clipLabel);
       clipContainer.appendChild(deleteButton);
+      clipContainer.appendChild(document.createElement('br'));
       clipContainer.appendChild(autorisation);
       clipContainer.appendChild(sendButton);
       soundClips.appendChild(clipContainer);

@@ -11,15 +11,28 @@
     <div class="wrapper">
 
       <header>
-        <h1>Livre d'or sonore</h1>
+        <h1>Commentaires audio</h1>
       </header>
 
       <section class="main-controls">
         <canvas class="visualizer" height="60px"></canvas>
         <div id="buttons">
-          <button class="record">Record</button>
-          <button class="stopB" style="display:none" >Stop</button>
+          <button class="record">Enregistrer</button>
+          <button class="stopB" style="display:none" >Arrêter</button>
+          
         </div>
+    <aside>
+      <h2>Comment procéder ?</h2>
+
+      <p><ul>
+        <li>Appuyez sur le bouton "Enregistrer"</li>
+        <li>Laissez votre message (moins d'1 minute) en commençant par mentionner votre prénom et le nom.</li>
+        <li>Vous pouvez écouter votre message et recommancer en appuyant sur "Efface"</li>
+        <li>Lorsque le message vous satisfait, appuyez sur "Envoyer"</li>
+        <li>Envoyez ensuite votre photo avec votre prénom par mail à l'adresse <a href="mailto:avis@phonomade.fr">avis@phonomade.fr</a></li>
+      </ul></p>
+    </aside>
+        
         
         
       </section>
@@ -36,13 +49,7 @@
 
     </div>
 
-    <label for="toggle">❔</label>
-    <input type="checkbox" id="toggle">
-    <aside>
-      <h2>Comment procéder</h2>
-
-      <p>Mettre ici éventuellement un mode d'emploi du livre d'or numérique</p>
-    </aside>
+    
     <script type="text/javascript">
         let hotel = "<?php if (isset($_GET['hotel'])) { echo ($_GET['hotel']); } else { echo ('unknown'); } ?>";
     </script>
