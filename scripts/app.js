@@ -83,7 +83,7 @@ if (navigator.mediaDevices.getUserMedia) {
       
 
       const autorisation = document.createElement('p');
-      autorisation.textContent = 'En cliquant sur Send, j\'autorise l\'utilisation du fichier sonore pour la promotion de l\'hôtel';
+      autorisation.textContent = 'En Appuyant sur le bouton "Envoyer", j\'autorise l\'utilisation du fichier audio par le service Phonomade.';
       autorisation.className = 'send';
       sendButton.textContent = 'Envoyer';
       sendButton.className = 'send';
