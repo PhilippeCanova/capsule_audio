@@ -32,7 +32,7 @@
   
   canvas {
     display: inline-block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0rem;
     width: calc(100% - 0.25rem);
   }
   
@@ -56,7 +56,8 @@
     border: none;
     transition: all 0.2s;
     padding: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
   }
   
   button:hover, button:focus {
@@ -130,7 +131,8 @@
     position: relative;
     width: 100%;
     background-color: #efefef;
-    padding: 1rem;
+    padding: 1.5em; font-size: 125%;
+    padding-left: 2.5em;
   }
   
   aside p {
@@ -138,6 +140,10 @@
     margin: 0.5rem 0;
   }
   
+  aside ul {
+    margin: 2.5rem 0;
+  }
+
   aside a {
     color: #666;
   }
@@ -164,8 +170,41 @@
     }
   }
 
-  .no-recorder { display: none; }
-  .greetings { display: none; }
+  button.record {
+    background-image: url('../img/rec.png');
+    background-repeat: no-repeat;
+    background-position-x: 2em;
+    background-position-y: center;
+    background-size: 2em;
+  }
+
+  button.delete {
+    background-image: url('../img/delete.png');
+    background-repeat: no-repeat;
+    background-position-x: 2em;
+    background-position-y: center;
+    background-size: 2em;
+  }
+
+  button.stopB {
+    background-image: url('../img/stop.png');
+    background-repeat: no-repeat;
+    background-position-x: 2em;
+    background-position-y: center;
+    background-size: 2em;
+  }
+
+  button.send {
+    background-image: url('../img/send.png');
+    background-repeat: no-repeat;
+    background-position-x: 2em;
+    background-position-y: center;
+    background-size: 2em;
+  }
+
+  .no-recorder { display: none; padding: 1.5em; font-size: 150%;}
+  .greetings { display: none; padding: 1.5em; font-size: 150%; }
+
   .stopB { background-color : red; }
   button.stopB:hover, button.stopB:focus {
     background-color : red;
@@ -173,12 +212,18 @@
   button.delete, button.delete:hover, button.delete:focus {
     background-color : red;
     margin-bottom: 2em;
+    background-image: url('../img/delete.png') no-repeat left;
   }
+  
+
   button.help, button.help:hover, button.help:focus {
-    background-color : gray;
+    background-color : gray; 
   }
   p.send { display: block; width:100%; text-align: center; }
 
   section.greetings {
-    display: block; width:100%; text-align: center; padding: 1em; font-size: 150%; padding-top: 3em;
+    display: none; width:100%; text-align: center; padding: 1.5em; font-size: 150%; padding-top: 3em;
+  }
+  .no-recorder ul {
+    margin-top:1em; 
   }

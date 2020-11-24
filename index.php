@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Web dictaphone</title>
+    <title>Commentaires audios</title>
     <link href="styles/app.css" rel="stylesheet" type="text/css">
   </head>
   <body>
@@ -11,7 +11,7 @@
     <div class="wrapper">
 
       <header>
-        <h1>Commentaires audio</h1>
+        <h1>Commentaires audios</h1>
       </header>
 
       <section class="main-controls">
@@ -41,10 +41,16 @@
       </section>
 
       <section class="no-recorder">
-        Aucun périphérique d'enregistrement sonore n'est accessible sur votre terminal.<br>Le livre d'or numérique n'est pas utilisable.
+        Aucun périphérique d'enregistrement sonore n'est accessible sur votre terminal. Il n'est donc pas possible de soumettre un commentaire audio. <br><br>Pour résoudre se problème, vous devez :
+        <ul>
+            <li>Utiliser Firefox ou Chrome</li>
+            <li>Utiliser de préférence Androïd</li>
+            <li>Autoriser explicitement votre navigateur à accéder à votre microphone</li>
+        </ul>
+        Si cela ne fonctionnement toujours pas, vous pouvez envoyer votre bande son directement par mail à <a href="mailto:avis@phonomade.fr">avis@phonomade.fr</a>
       </section>
       <section class="greetings">
-        Nous vous remercions de votre participation.<br>Votre avis sera bientôt disponible sur le site de l'hôtel.
+        Nous vous remercions de votre participation.<br><br>Votre avis sera bientôt disponible sur le site de l'hôtel.
       </section>
 
     </div>
