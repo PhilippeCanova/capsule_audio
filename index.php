@@ -25,11 +25,10 @@
       <h2>Comment procéder ?</h2>
 
       <p><ul>
-        <li>Appuyez sur le bouton "Enregistrer"</li>
-        <li>Laissez votre message (moins d'1 minute) en commençant par mentionner votre prénom et le nom.</li>
-        <li>Vous pouvez écouter votre message et recommancer en appuyant sur "Efface"</li>
-        <li>Lorsque le message vous satisfait, appuyez sur "Envoyer"</li>
-        <li>Envoyez ensuite votre photo avec votre prénom par mail à l'adresse <a href="mailto:avis@phonomade.fr">avis@phonomade.fr</a></li>
+        <li>Appuyez sur le bouton "Enregistrer" (Hors IPhone)</li>
+        <li>Laissez votre message (moins d'1 minute) en commençant par mentionner votre nom (il sera supprimé à la mise en ligne).</li>
+        <li>S'il vous convient, appuyez sur "Envoyer"</li>
+        <li>Le micro de l'IPhone étant verrouillé, vous devrez dans ce cas utiliser l'application dictaphone et envoyer le message audio à l'adresse : <a href="mailto:avis@phonomade.fr">avis@phonomade.fr</a> en mentionnant le nom de l'hôtel.</li>
       </ul></p>
     </aside>
         
