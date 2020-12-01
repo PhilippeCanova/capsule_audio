@@ -2,53 +2,55 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  html, body {
+}
+
+html,
+body {
     height: 100%;
-  }
-  
-  body {
+}
+
+body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 0.8rem;
-  }
-  
-  .wrapper {
+}
+
+.wrapper {
     height: 100%;
     display: flex;
     flex-direction: column;
-  }
-  
-  h1, h2 {
+}
+
+h1,
+h2 {
     font-size: 2rem;
     text-align: center;
     font-weight: normal;
     padding: 0.5rem 0 0 0;
-  }
-  
-  .main-controls {
+}
+
+.main-controls {
     padding: 0.5rem 0;
-  }
-  
-  canvas {
+}
+
+canvas {
     display: inline-block;
     margin-bottom: 0rem;
     width: calc(100% - 0.25rem);
-  }
-  
-  #buttons {
+}
+
+#buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-  }
-  
-  #buttons button {
+}
+
+#buttons button {
     font-size: 1rem;
     padding: 1rem;
     width: calc(100% - 0.25rem);
-  }
-  
-  button {
+}
+
+button {
     font-size: 1rem;
     background: #0088cc;
     text-align: center;
@@ -58,60 +60,64 @@
     padding: 0.5rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
-  }
-  
-  button:hover, button:focus {
+}
+
+button:hover,
+button:focus {
     box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 1);
     background: #0ae;
-  }
-  
-  button:active {
-    box-shadow: inset 0px 0px 20px rgba(0,0,0,0.5);
+}
+
+button:active {
+    box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.5);
     transform: translateY(2px);
-  }
-  
-  
-  /* Make the clips use as much space as possible, and
+}
+
+
+/* Make the clips use as much space as possible, and
    * also show a scrollbar when there are too many clips to show
    * in the available space */
-  .sound-clips {
+
+.sound-clips {
     flex: 1;
     overflow: auto;
-  }
-  
-  section, article {
+}
+
+section,
+article {
     display: block;
-  }
-  
-  .clip {
+}
+
+.clip {
     padding-bottom: 1rem;
-  }
-  
-  audio {
+}
+
+audio {
     width: 100%;
     display: block;
     margin: 1rem auto 0.5rem;
-  }
-  
-  .clip p {
+}
+
+.clip p {
     display: inline-block;
     font-size: 1rem;
-  }
-  
-  .clip button {
+}
+
+.clip button {
     font-size: 1rem;
     float: right;
-  }
-  
-  .clip button {
+}
+
+.clip button {
     font-size: 1rem;
     padding: 1rem;
     width: calc(100% - 0rem);
-  }
-  
-  /* Checkbox hack to control information box display */
-  
-  label {
+}
+
+
+/* Checkbox hack to control information box display */
+
+label {
     font-size: 3rem;
     position: relative;
     top: 2px;
@@ -120,110 +126,148 @@
     cursor: pointer;
     background-color: black;
     border-radius: 10px;
-  }
-  
-  input[type=checkbox] {
-     position: absolute;
-     top: -100px;
-  }
-  
-  aside {
+}
+
+input[type=checkbox] {
+    position: absolute;
+    top: -100px;
+}
+
+aside {
     position: relative;
     width: 100%;
     background-color: #efefef;
-    padding: 1.5em; font-size: 125%;
+    padding: 1.5em;
+    font-size: 125%;
     padding-left: 2.5em;
-  }
-  
-  aside p {
+}
+
+aside p {
     font-size: 1.2rem;
     margin: 0.5rem 0;
-  }
-  
-  aside ul {
-    margin: 2.5rem 0;
-  }
+}
 
-  aside a {
+aside ul {
+    margin: 2.5rem 0;
+}
+
+aside a {
     color: #666;
-  }
-  
-  /* Toggled State of information box */
-  input[type=checkbox]:checked ~ aside {
+}
+
+
+/* Toggled State of information box */
+
+input[type=checkbox]:checked~aside {
     transform: translateX(0);
-  }
-  
-  /* Cursor when clip name is clicked over */
-  
-  .clip p {
+}
+
+
+/* Cursor when clip name is clicked over */
+
+.clip p {
     cursor: pointer;
-  }
-  
-  /* Adjustments for wider screens */
-  @media all and (min-width: 800px) {
+}
+
+
+/* Adjustments for wider screens */
+
+@media all and (min-width: 800px) {
     /* Don't take all the space as readability is lost when line length
        goes past a certain size */
     .wrapper {
-      width: 90%;
-      max-width: 1000px;
-      margin: 0 auto;
+        width: 90%;
+        max-width: 1000px;
+        margin: 0 auto;
     }
-  }
+}
 
-  button.record {
+button.record {
     background-image: url('../img/rec.png');
     background-repeat: no-repeat;
     background-position-x: 2em;
     background-position-y: center;
     background-size: 2em;
-  }
+}
 
-  button.delete {
+button.delete {
     background-image: url('../img/delete.png');
     background-repeat: no-repeat;
     background-position-x: 2em;
     background-position-y: center;
     background-size: 2em;
-  }
+}
 
-  button.stopB {
+button.stopB {
     background-image: url('../img/stop.png');
     background-repeat: no-repeat;
     background-position-x: 2em;
     background-position-y: center;
     background-size: 2em;
-  }
+}
 
-  button.send {
+button.send {
     background-image: url('../img/send.png');
     background-repeat: no-repeat;
     background-position-x: 2em;
     background-position-y: center;
     background-size: 2em;
-  }
+}
 
-  .no-recorder { display: none; padding: 1.5em; font-size: 150%;}
-  .greetings { display: none; padding: 1.5em; font-size: 150%; }
+.no-recorder {
+    display: none;
+    padding: 1.5em;
+    font-size: 150%;
+}
 
-  .stopB { background-color : red; }
-  button.stopB:hover, button.stopB:focus {
-    background-color : red;
-  }
-  button.delete, button.delete:hover, button.delete:focus {
-    background-color : red;
+.greetings {
+    display: none;
+    padding: 1.5em;
+    font-size: 150%;
+}
+
+.stopB {
+    background-color: red;
+}
+
+button.stopB:hover,
+button.stopB:focus {
+    background-color: red;
+}
+
+button.delete,
+button.delete:hover,
+button.delete:focus {
+    background-color: red;
     margin-bottom: 2em;
     background-image: url('../img/delete.png') no-repeat left;
-  }
-  
+}
 
-  button.help, button.help:hover, button.help:focus {
-    background-color : gray; 
-  }
-  p.send { display: block; width:100%; text-align: center; }
+button.help,
+button.help:hover,
+button.help:focus {
+    background-color: gray;
+}
 
-  section.greetings {
-    display: none; width:100%; text-align: center; padding: 1.5em; font-size: 150%; padding-top: 3em;
-  }
-  .no-recorder ul {
-    margin-top:1em; 
-  }
+p.send {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+section.greetings {
+    display: none;
+    width: 100%;
+    text-align: center;
+    padding: 1.5em;
+    font-size: 150%;
+    padding-top: 3em;
+}
+
+.no-recorder ul {
+    margin-top: 1em;
+}
+
+li.inter {
+    margin-top: 1em;
+}
